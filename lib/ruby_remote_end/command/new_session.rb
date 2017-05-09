@@ -12,7 +12,7 @@ module RubyRemoteEnd
 			end
 
 			def execute
-				session = RubyRemoteEnd.const_get(adapter).const_get(:Session).start
+				session = adapter.const_get(:Session).start
 				return success(session), session
 			end
 
