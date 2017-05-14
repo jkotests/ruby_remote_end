@@ -6,10 +6,7 @@ module RubyRemoteEnd
 			RequestRouter.register(self)
 
 			def execute
-				start_ole = session.known_elements[element_id]
-				start_node = session.current_browsing_context.element(:ole_object, start_ole)
-
-				e = start_node.element(location_strategy, selector)
+				e = element.element(location_strategy, selector)
 				if e.exists?
 					identifier = create_web_element_identifier
 					session.known_elements[identifier] = e.ole_object
@@ -20,15 +17,11 @@ module RubyRemoteEnd
 			end
 
 			def location_strategy
-				JSON.parse(payload).fetch('using')
+				payload.fetch('using')
 			end
 
 			def selector
-				JSON.parse(payload).fetch('value')
-			end
-
-			def element_id
-				uri_parameters['element_id']
+				payload.fetch('value')
 			end
 
 			private

@@ -24,7 +24,7 @@ module RubyRemoteEnd
 					{
 						'sessionId' => session.id,
 						'status' => 0,
-						'value' => {} # TODO: determine what values are required
+						'value' => {'sessionId' => session.id, 'capabilities' => {}} # TODO: determine what values are required
 					}.to_json,
 					'application/json'
 				)

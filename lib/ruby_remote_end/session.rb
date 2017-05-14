@@ -28,6 +28,10 @@ module RubyRemoteEnd
 			current_browsing_context.element(location_strategy, selector)
 		end
 
+		def elements(location_strategy, selector)
+			current_browsing_context.elements(location_strategy, selector)
+		end
+
 		private
 
 		def generate_session_id
